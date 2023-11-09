@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Login</title>
+<link th:replace="admin/layout/assets :: css" /> 
 </head>
-<body>
-	<h1>Login Page</h1>
+<body class="container ">
+	<div id="login" class="d-flex align-items-center">
+      <form action="" method="POST" class="row g-3 login">
+          <h1>Welcome back!</h1>
+          <span class="form-label mb-3">Enter your Credentials to access your account</span>
+          <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Password</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+              <label class="form-check-label" for="flexCheckChecked">Remember for 30 days</label>
+          </div>
+          <div class="d-grid gap-2">
+              <button class="btn form-btn" type="button">Login</button>
+          </div>
+      </form>
+      <div class="image">
+          <img th:src="@{/resources/images/signup.png}">
+      </div>
+    </div>
 </body>
 </html>

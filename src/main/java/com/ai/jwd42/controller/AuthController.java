@@ -17,4 +17,10 @@ public class AuthController {
 		User user = new User();
 		return new ModelAndView("login.html", "user", user);
 	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public ModelAndView signUp(HttpServletRequest request, ModelMap model) {
+		User user = new User();
+		return new ModelAndView("signup.html", "user", user);
+	}
 }

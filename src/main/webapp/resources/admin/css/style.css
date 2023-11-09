@@ -5,6 +5,7 @@
     --bg-purple-soft : #E17CFD;
     --border-color : #C4C4C4;
     --bg-dark-color : #2B2F42;
+    --bg-darkgreen-color : #3A5B22;
 }
 body {
     font-family: Roboto;
@@ -72,8 +73,8 @@ body {
 .concured_ttl span {
     display: inline-block;
     vertical-align: middle;
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 25px;
+    line-height: 25px;
     color: #333;
 }
 #list_wrap {
@@ -400,21 +401,45 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* table - css start  */
-.row {
-    margin: 0 0 20px;
+
+/* sign-in */
+#sign-in, #login {
+    width: auto;
+    margin: 0 auto;
+    justify-content: center;
 }
-.form-control {
-    border-color: #7777;
+.signin, .login {
+    margin: 0 130px;
+    width: 400px;
+    font-size: 20px;
+    line-height: 20px;
 }
-.table {
-    text-align: center;
-    background: linear-gradient(45deg,#dde6e5,#d6f5e3);
-    --bs-table-bg: transparent;
-    border-color: black;
+#login span {
+    margin: 0px 0 49px !important;
 }
-.table th {
-    font-size: 1.2rem;
-    background-color: rgba(13, 110, 253, 0.25);
+.form-btn {
+    background: var(--bg-darkgreen-color);
+    color: #fff;
+    font-size: 17px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+.form-btn:hover {
+    background: var(--bg-darkgreen-color);
+}
+.image {
+    width: 700px;
+    height: 700px;
+}
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* add yasuo css  */
+.bg-gray{
+    background-color: var(--bg-gray-color);
 }
 
