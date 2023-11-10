@@ -14,7 +14,6 @@
 			<div class="content_box">
 				<!-- header   -->
 				<link th:replace="admin/layout/assets :: header" />
-
 			</div>
 			<div id="sub_content">
 				<form class="row g-3">
@@ -23,7 +22,6 @@
 							Name</label> <input type="text" class="form-control"
 							placeholder="Category Name">
 					</div>
-
 					<div class="col-auto">
 						<button type="submit" class="btn btn-primary mb-3">Search</button>
 					</div>
@@ -31,31 +29,25 @@
 						<button type="submit" class="btn btn-danger mb-3">Reset</button>
 					</div>
 					<div class="col-auto">
-						<a th:href="@{/category/add}" class="btn btn-info">Add New</a>
+						<a th:href="@{/sub-category/add}" class="btn btn-info">Add New</a>
 					</div>
 				</form>
 
-				<table class="table align-middle mb-0 bg-gray table-hover mt-3">
-					<thead class="bg-light">
+				<table class="table table-striped" id="stduentTable">
+					<thead>
 						<tr>
-							<th>#</th>
-							<th>Name</th>
-							<th>Actions</th>
+
+							<th scope="col">ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">CategoryName</th>
+							<th scope="col">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>
-								<div class="d-flex align-items-center">
-									<img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-										style="width: 45px; height: 45px" class="rounded-circle" />
-									<div class="ms-3">
-										<p class="fw-bold mb-1">John Doe</p>
-										<p class="text-muted mb-0">john.doe@gmail.com</p>
-									</div>
-								</div>
-							</td>
+						<tr th:each="subcategory, state : ${subcategories}">
+							<td th:text="${state.count}"></td>
+							<td th:text="${subcategory.name}"></td>
+							<td th:text="${subcategory.categoryName}"></td>
 							<td>
 								<button type="button" class="btn btn-link btn-lg btn-rounded">
 									<i class="fa-solid fa-pen-to-square"></i>
@@ -66,7 +58,6 @@
 								</button>
 							</td>
 						</tr>
-
 					</tbody>
 				</table>
 
