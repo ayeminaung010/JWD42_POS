@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Product</title>
+<link th:replace="admin/layout/assets :: css" />
+</head>
+<body>
+	<div id="container">
+		<!-- side navbar here  -->
+		<link th:replace="admin/layout/assets :: sideBar" />
+		<div id="content_wrap">
+			<div class="content_box">
+				<!-- header here  -->
+				<link th:replace="admin/layout/assets :: header" />
+
+			</div>
+			<div id="sub_content">
+				<h5 class="fw-bold">Add Product</h5>
+				<div class="row justify-content-center">
+					<div class="col-lg-8 bg-gray p-5 mt-5 rounded-5">
+						<form th:action="@{/product/add}" method="post"
+							th:object="${product}">
+							<div class="mb-3">
+								<label class="form-label">Title</label> <input type="text"
+									class="form-control" th:field="*{title}"
+									placeholder="Enter Product Title" />
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('title')}" class="text-danger">
+									<span th:errors="*{title}"></span>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Description</label>
+								<textarea th:field="*{description}" class="form-control" id=""
+									cols="30" rows="10" placeholder="Enter Description"></textarea>
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('description')}"
+									class="text-danger">
+									<span th:errors="*{description}"></span>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Price</label> <input type="number"
+									class="form-control" th:field="*{price}"
+									placeholder="Enter Price" />
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('price')}" class="text-danger">
+									<span th:errors="*{price}"></span>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Discount</label> <input type="number"
+									class="form-control" th:field="*{discount}"
+									placeholder="Enter Discount" />
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('discount')}"
+									class="text-danger">
+									<span th:errors="*{discount}"></span>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Discount</label> <input type="number"
+									class="form-control" th:field="*{discount}"
+									placeholder="Enter Discount" />
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('discount')}"
+									class="text-danger">
+									<span th:errors="*{discount}"></span>
+								</div>
+							</div>
+
+							<div class="mb-3">
+								<label class="form-label">Brand</label> 
+								<!-- <select th:field="*{brand_id}"
+									class="form-select">
+									<option value="" disabled selected>Choose One</option>
+									<option value="1">Acer</option>
+									<option value="2">Dell</option>
+								</select> -->
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('brand_id')}"
+									class="text-danger">
+									<span th:errors="*{brand_id}"></span>
+								</div>
+							</div>
+							
+							<div class="mb-3">
+								<label class="form-label">Sub Category</label> 
+								<select th:field="*{sub_category_id}"
+									class="form-select">
+									<option value="" disabled selected>Choose One</option>
+									<option value="1">Category one</option>
+									<option value="2">Category two</option>
+								</select>
+								<!-- error messsage  -->
+								<div th:if="${#fields.hasErrors('sub_category_id')}"
+									class="text-danger">
+									<span th:errors="*{sub_category_id}"></span>
+								</div>
+							</div>
+
+							<div class=" text-end">
+								<a th:href="@{/product}" class="btn btn-secondary ">Cancel</a>
+								<button type="submit" class="btn btn-primary ">Add</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- js   -->
+		<link th:replace="admin/layout/assets :: js" />
+</body>
+</html>
