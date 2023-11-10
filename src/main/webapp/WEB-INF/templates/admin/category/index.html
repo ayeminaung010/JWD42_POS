@@ -44,18 +44,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>
-								<div class="d-flex align-items-center">
-									<img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-										style="width: 45px; height: 45px" class="rounded-circle" />
-									<div class="ms-3">
-										<p class="fw-bold mb-1">John Doe</p>
-										<p class="text-muted mb-0">john.doe@gmail.com</p>
-									</div>
-								</div>
-							</td>
+					
+						<tr th:each="category,state : ${categories}">
+							<td th:text="${state.index}"></td>
+							<td th:text="${category.name}"></td>
 							<td>
 								<button type="button" class="btn btn-link btn-lg btn-rounded">
 									<i class="fa-solid fa-pen-to-square"></i>
@@ -66,7 +58,7 @@
 								</button>
 							</td>
 						</tr>
-
+						
 					</tbody>
 				</table>
 

@@ -19,6 +19,7 @@
 
 	<mvc:default-servlet-handler />
 
+
 	<bean id="templateResolver"
 		class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
 		<property name="prefix" value="/WEB-INF/templates/" />
@@ -38,5 +39,5 @@
 		<property name="viewNames" value="*.html" />
 	</bean>
 
-
+	<bean id="categoryValidator" class="com.ai.jwd42.validator.CategoryValidator" />
 </beans>
