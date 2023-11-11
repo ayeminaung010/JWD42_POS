@@ -18,10 +18,11 @@ public class SubCategoryRepo extends BaseRepo {
 			PreparedStatement ps = conn
 					.prepareStatement("INSERT INTO sub_category (name, category_id) VALUES (?,?);");
 			ps.setString(1, subcategory.getName());
-			ps.setInt(1, subcategory.getCategoryId());
+			ps.setInt(2, subcategory.getCategoryId());
 
 			ps.executeUpdate();
 			return true;
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

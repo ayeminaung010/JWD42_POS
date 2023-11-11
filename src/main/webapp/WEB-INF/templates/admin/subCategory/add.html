@@ -22,19 +22,17 @@
 
 
 						<form method="post" th:action="@{/sub-category/add}"
-							th:object="${subCategory}">
+							th:object="${subcategory}">
 							<div class="mb-3">
 								<label for="name" class="form-label">Subcategory Name:</label> <input
-									type="text" th:field="*{name}" class="form-control" id="name" />
+									type="text" th:field="*{name}" class="form-control"/>
 							</div>
 							<div class="mb-3">
-								<label for="categoryId" class="form-label">Category:</label> <select
-									th:field="*{categoryId}" aria-label="Education" id="categoryId"
-									class="form-select">
-									<option value="" disabled selected>Select a Category</option>
+								<label for="categoryId" class="form-label">Category:</label> 
+								<select th:field="*{categoryId}" class="form-select">
 									<option th:each="category : ${categories}"
-										th:value="${category.id}" th:text="${category.name}"></option>
-								</select>
+										th:value="${category.id}"  th:text="${category.name}"></option>
+								</select> 
 							</div>
 							<div class="text-end">
 								<a href="#" class="btn btn-secondary">Cancel</a>

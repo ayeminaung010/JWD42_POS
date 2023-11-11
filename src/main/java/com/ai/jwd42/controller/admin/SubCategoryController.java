@@ -22,6 +22,7 @@ import com.ai.jwd42.service.SubCategoryService;
 public class SubCategoryController {
 	@Autowired
 	private SubCategoryService subcategoryservice;
+	@Autowired
 	private CategoryService categoryservice;
 	
 	@RequestMapping(value = "/sub-category", method = RequestMethod.GET)
@@ -31,16 +32,23 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping(value = "/sub-category/add", method = RequestMethod.GET)
-	public ModelAndView addsubCategory(ModelMap model) {
+	public ModelAndView addsubCategory( ModelMap model, HttpServletRequest request) {
 		SubCategory subcategory = new SubCategory();
+		List<Category> categories = categoryservice.findAll();
+		//System.out.println("Categories :" + categories);
+		request.setAttribute("categories", categories);
 		return new ModelAndView("admin/subCategory/add.html","subcategory", subcategory);
 	}
 	@RequestMapping(value = "/sub-category/add", method = RequestMethod.POST)
 	public ModelAndView CreatsubCategory(@ModelAttribute SubCategory subCategory, ModelMap model, HttpServletRequest request) {
-		SubCategory subcategory = new SubCategory();
-		List<Category> categories = categoryservice.findAll();
-		request.setAttribute("categories", categories);
-		return new ModelAndView("admin/subCategory/add.html","subcategory", subcategory);
+		
+	 boolean status = subcategoryservice.addsubCategory(subCategory);
+	 
+		if (!status) {
+			return new ModelAndView("admin/subCategory/add.html","subcategory", subCategory);
+		} else {
+			return new ModelAndView("redirect:/sub-category", "subCategory", subCategory);
+		}
 		
 	}
 }
