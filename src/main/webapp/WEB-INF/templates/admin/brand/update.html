@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Update Brand</h1>
+	<form th:action="@{/brand/updateBrand}" method="post"
+		th:object="${brand}">
+		<label path="name">Brand Name</label> <input type="text"
+			th:value="${updateBrand.name}" /> <input type="hidden" th:field="*{id}"
+			th:value="${updateBrand.id}">
+
+		<button type="submit">Save changes</button>
+	</form>
+
+</body>
+</html>
